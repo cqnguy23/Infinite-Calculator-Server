@@ -30,7 +30,6 @@ calculationsController.calculate = async (req, res, next) => {
   try {
     const { sessionID, firstOperand, secondOperand, operation } = req.body;
     const sessionName = req.body.sessionName || "My Calculation";
-    console.log(req.body);
     if (!firstOperand || !secondOperand || !operation) {
       return next(
         new utils.AppError(
@@ -80,7 +79,6 @@ calculationsController.calculate = async (req, res, next) => {
           path: "calculationLogs",
         },
       });
-      console.log(calculation);
       return res.status(201).send(calculation);
     }
   } catch (err) {
